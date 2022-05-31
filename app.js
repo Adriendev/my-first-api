@@ -10,6 +10,9 @@ app.use("/", indexRouter);
 const restaurantsRouter = require("./routes/restaurants.routes.js");
 app.use("/restaurants", restaurantsRouter);
 
+const addErrorHandling = require("./error-handling.js");
+addErrorHandling(app);
+
 app.listen(port, () => {
   console.log(`test listening on port ${port}`);
 });

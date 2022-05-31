@@ -25,28 +25,27 @@ router.get("/", (req, res) => {
   });
 });
 
-// GET restaurant by key 
+// GET restaurant by key
 
 function addRouteForKey(key) {
-    router.get(`/${key}/:${key}`, (req, res, next) => {
-      const value = req.params[key];
-      const restaurant = restaurants.find((element) => element[key] === value);
-  
-      //add if !book
-      if (!restaurant) {
-        next();
-        return;
-      }
-  
-      res.json(restaurant);
-    });
-  }
-  addRouteForKey("name");
-  addRouteForKey("adress");
-  addRouteForKey("style");
-  addRouteForKey("price");
-  addRouteForKey("rating");
+  router.get(`/${key}/:${key}`, (req, res, next) => {
+    const value = req.params[key];
+    const restaurant = restaurants.find((element) => element[key] === value);
 
+    //add if !book
+    if (!restaurant) {
+      next();
+      return;
+    }
+
+    res.json(restaurant);
+  });
+}
+addRouteForKey("name");
+addRouteForKey("adress");
+addRouteForKey("style");
+addRouteForKey("price");
+addRouteForKey("rating");
 
 // POST restaurants
 router.post("/", (req, res) => {
