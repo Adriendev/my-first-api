@@ -110,9 +110,15 @@ router.post("/", (req, res) => {
     });
     return;
   }
-  if (!restaurant.rating || typeof restaurant.rating !== "number") {
+  if (
+    typeof restaurant.rating !== "number" ||
+    restaurant.rating === null ||
+    !(restaurant.rating >= 0) ||
+    !(restaurant.rating <= 5)
+  ) {
     res.status(400).json({
-      message: "Please provide a proper restaurant rating (should be a number)",
+      message:
+        "Please provide a proper restaurant rating (should be a number between 0 and 5 included)",
     });
     return;
   }
