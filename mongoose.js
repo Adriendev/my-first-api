@@ -10,6 +10,7 @@ const restaurantsSchema = new mongoose.Schema({
   style: { type: mongoose.SchemaTypes.String, required: true },
   price: { type: mongoose.SchemaTypes.String, required: true },
   rating: { type: mongoose.SchemaTypes.Number, required: true },
+  tried: { type : mongoose.SchemaTypes.Boolean, required:true }
 });
 
 const Restaurants = mongoose.model("Restaurants", restaurantsSchema);
@@ -27,15 +28,16 @@ const connection = mongoose
     // TODO: use Course to insert, find, update, etc
 
   return  Restaurants.create({
-        name: "test2",
+        name: "Luisa Maria",
         adress: {
-          street: "test2",
-          postcode: "test2",
-          city: "test2",
+          street: "12 rue monsieur le prince",
+          postcode: "75006",
+          city: "Paris",
         },
-        style: "test2",
-        price: "test2",
-        rating: 5,
+        style: "Italien / Pizza",
+        price: "$$",
+        rating: 4.4,
+        tried : false
     })
 
     // return Restaurants.find();
