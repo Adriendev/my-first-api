@@ -7,10 +7,10 @@ const restaurantsSchema = new mongoose.Schema({
     postcode: { type: mongoose.SchemaTypes.String, required: true },
     city: { type: mongoose.SchemaTypes.String, required: true },
   },
-  style: { type: mongoose.SchemaTypes.String, required: true },
-  price: { type: mongoose.SchemaTypes.String, required: true },
-  rating: { type: mongoose.SchemaTypes.Number, required: true },
-  tried: { type: mongoose.SchemaTypes.Boolean, required: true },
+  style: { type: mongoose.SchemaTypes.String },
+  price: { type: mongoose.SchemaTypes.String },
+  rating: { type: mongoose.SchemaTypes.Number },
+  tried: { type: mongoose.SchemaTypes.Boolean },
 });
 
 const Restaurants = mongoose.model("Restaurants", restaurantsSchema);
