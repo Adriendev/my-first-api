@@ -4,7 +4,11 @@
     "dev": "nodemon app.js"
   },
   "dependencies": {
+    "db": "^3.3.1",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.3.5"
+    "hbs": "^4.2.0",
+    "mongoose": "^6.3.5",
+    "morgan": "^1.10.0"
   }
 }

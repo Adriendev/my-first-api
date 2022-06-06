@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const restaurantsSchema = new mongoose.Schema({
+const restaurantSchema = new mongoose.Schema({
   name: { type: mongoose.SchemaTypes.String, required: true },
   adress: {
     street: { type: mongoose.SchemaTypes.String, required: true },
@@ -13,6 +13,6 @@ const restaurantsSchema = new mongoose.Schema({
   tried: { type: mongoose.SchemaTypes.Boolean },
 });
 
-const Restaurants = mongoose.model("Restaurants", restaurantsSchema);
+const Restaurant = mongoose.model("Restaurant", restaurantSchema);
 
-module.exports = Restaurants;
+module.exports = Restaurant;

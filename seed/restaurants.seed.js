@@ -1,4 +1,4 @@
-const Restaurants = require("../models/restaurants.models.js");
+const Restaurant = require("../models/restaurant.models.js");
 const openConnection = require("../DB/connect.js");
 const { default: mongoose } = require("mongoose");
 const parisRestaurants = require("../restaurants-casvp.json");
@@ -30,6 +30,8 @@ async function seedParisRestaurants() {
   const convertedRestaurants = parisRestaurants.map(
     convertParisRestaurantToSchema
   );
+
+  //delete duplicates without deleting all the collection. 
   await Promise.all(
     convertedRestaurants.map(
       (resto) => resto.name && Restaurants.deleteMany({ name: resto.name })
