@@ -1,7 +1,5 @@
 // express
 
-const port = 5000;
-
 require("dotenv/config");
 
 const db = require("./DB/connect");
@@ -28,12 +26,15 @@ app.use("/user", userRouter);
 const favoriteRouter = require("./routes/favorite.routes.js");
 app.use("/favorite", favoriteRouter);
 
+const authRouter = require("./routes/auth.routes")
+app.use("/auth", authRouter)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling/error-handling")(app);
 // const addErrorHandling = require("./error-handling.js");
 // addErrorHandling(app);
-app.listen(port, () => {
-  console.log(`test listening on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`test listening on port http://localhost:${process.env.PORT}`);
 });
 
 // Mongoose

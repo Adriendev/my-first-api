@@ -5,9 +5,10 @@ const Favorite = require("../models/favorites.models.js");
 const User = require("../models/user.models.js");
 const Restaurant = require("../models/restaurants.models.js");
 const { populate } = require("../models/restaurants.models.js");
+const isAuthenticated = require("../middleware/isAuthenticated.js")
 
 // create favorite
-router.post("/", async (req, res, next) => {
+router.post("/", isAuthenticated, async (req, res, next) => {
   try {
     let { user, restaurant } = req.body;
     if (!isValidObjectId(user)) {
@@ -49,7 +50,7 @@ router.post("/", async (req, res, next) => {
 
 // all favorites
 
-router.get("/", async (req, res, next) => {
+router.get("/", isAuthenticated, async (req, res, next) => {
   try {
     const allFavorites = await Favorite.find();
     res.status(200).json(allFavorites);
